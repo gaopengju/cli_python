@@ -22,14 +22,17 @@ class ArgParser():
                 if line[i] in self.flag_list:
                     self.parse_dict[line[i]]='true'
                 else:
-                    self.parse_dict[line[i]]=line[i+1]
+                    if i< maxLen -1 :
+                        self.parse_dict[line[i]]=line[i+1]
+                    else:
+                        self.parse_dict[line[i]] = ''
                     i = i + 1
             i = i + 1
     def get_arg(self,arg):
         if arg in self.parse_dict:
             return self.parse_dict[arg]
         else:
-            return null
+            return '' 
 
     def arg_print(self):
         print self.parse_dict
